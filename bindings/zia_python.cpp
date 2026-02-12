@@ -12,7 +12,7 @@ and non-commercial experimentation.
 Any production or operational use of any kind requires a Commercial License
 (see LICENSE-COMMERCIAL.md).
 
-Contact: [YOUR EMAIL / CONTACT METHOD]
+Contact: mitchell.quinn@starcroft.net
 
 Optional SPDX tag (recommended for tooling):
 SPDX-License-Identifier: LicenseRef-ZIA-Research
