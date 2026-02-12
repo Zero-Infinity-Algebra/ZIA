@@ -1,3 +1,24 @@
+/*==============================================================================
+Zero–Infinity Algebra (ZIA) — Official C++ Reference Implementation
+
+Copyright (c) 2026 Mitchell Quinn. All rights reserved.
+
+Licensed under the ZIA Research License (see LICENSE-RESEARCH.md).
+This is not an OSI-approved open-source license.
+
+Permitted (under the Research License): research/academia, teaching, evaluation,
+and non-commercial experimentation.
+
+Any production or operational use of any kind requires a Commercial License
+(see LICENSE-COMMERCIAL.md).
+
+Contact: [YOUR EMAIL / CONTACT METHOD]
+
+Optional SPDX tag (recommended for tooling):
+SPDX-License-Identifier: LicenseRef-ZIA-Research
+==============================================================================*/
+
+
 #include <stdexcept>
 #include <cmath>
 #include <sstream>
