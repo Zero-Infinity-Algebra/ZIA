@@ -127,10 +127,6 @@ ZIA is being released in **small, composable slices**: core arithmetic first, th
 
 ### Near-term (next releases)
 
-- **Example Jupyter Notebooks:**
-	- Machine learning
-	- Quantum measurement pipeline
-	- Computational fluid dynamics (with machine learning)
 - **Logging Service v1 (opt-in observability)**
     - Global enable/disable, sink registration, and event filtering via bitmask.
     - Emits **division singularity events** (with explicit “reason” + “outcome” taxonomy) and **invariant violation events** (NaN/Inf attempts).
