@@ -33,6 +33,38 @@ This library provides a reference implementation of Zero–Infinity Algebra (ZIA
 ZIA is not intended to replace standard numeric types in routine computation, nor to serve as a universal drop-in numeric abstraction. It should be introduced only at well-defined singularity points or boundary conditions where representational collapse would otherwise occur. For example, if a denominator in a numerical routine evaluates to zero, the implementation would branch to create a `ZIAValue` instead of returning `Inf`, and subsequent operations would carry that structured value forward. This design supports explicit handling of singular events while leaving non-singular computation unchanged.
 
 
+## Jupyter Notebooks
+
+The `notebooks/` directory contains example Jupyter notebooks that demonstrate ZIA and ZIA-style shadow channels in practical numerical pipelines. They are intended for research, evaluation, and as executable documentation. They are not production solver code.
+
+Included notebooks (by theme):
+- `notebooks/zia-cfd_*.ipynb`
+  - Positivity flooring in a minimal reactive transport model
+  - A shadow channel that preserves undershoot severity after repair
+  - Simple diagnostics and an adaptivity-style demo driven by the shadow signal
+- `notebooks/zia-ml_*.ipynb`
+  - Logit or LLR clipping and the induced identifiability failure in the saturated subset
+  - A shadow channel that records discarded mass online and restores ranking within that subset
+  - A ZIA ratio demonstration using a shifted log-index to avoid overflow
+
+ZIA Python module dependency:
+- The notebooks expect `zia.py` to be available in the same directory as the notebook (or otherwise importable on `PYTHONPATH`).
+- `zia.py` is an automatically generated Python version of the C++ reference implementation, provided so the notebooks can run without requiring a compiled extension.
+
+How to run:
+1. Create and activate a Python virtual environment.
+2. Install notebook dependencies (see `notebooks/requirements.txt` if present):
+   - pip install -r notebooks/requirements.txt
+3. Launch Jupyter from the repository root:
+   - jupyter lab
+   - or: jupyter notebook
+
+Notes:
+- Parameters and examples are chosen for clarity and reproducibility, not benchmark performance.
+- The primary numeric state is left unchanged. The shadow signal is computed only at existing stabilization points (flooring, clipping, limiting, or bounds).
+- Notebooks are covered by the same licensing terms as the rest of the repository.
+
+
 ## Build Instructions (Windows, CMake)
 
 Assumes **MSVC** and **CMake** are installed and available on `PATH`. Uses an **out-of-source** build in `.\build`.
@@ -87,9 +119,8 @@ Forks are permitted for uses allowed under the Research License. Under the **sof
 
 See `LICENSING.md` for a decision test and examples. For commercial licensing, see `LICENSE-COMMERCIAL.md` or contact: mitchell.quinn@starcroft.net.
 
-
-
 ---
+
 ## Roadmap (what to expect)
 
 ZIA is being released in **small, composable slices**: core arithmetic first, then observability, then provenance tooling. The goal is that each step is usable on its own, and later steps don’t invalidate early adopters.
